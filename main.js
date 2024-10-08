@@ -1,6 +1,6 @@
 const companyData = {
   name: "Acme Corporation",
-  primaryColor: "#2c5545",
+  primaryColor: "Red",
   backgroundColor: "#e3e3e3",
   claim: "We make the best widgets",
   text: "We are the best company in the world, except for the other companies that are better than us.",
@@ -12,20 +12,23 @@ console.log(companyData);
 
 //! VARIABLES
 
-const headTitle = document.getElementById('headTitle')
-const logoPage = document.getElementById('companyName')
-const imagepage = document.getElementById('companyImage')
-const datacompany = document.getElementById('companyClaim')
-const textcompany = document.getElementById('companyText')
-console.log (datacompany);
-console.log (textcompany);
+const htmlAll = document.documentElement;
+const headTitle = document.getElementById('headTitle');
+const logoPage = document.getElementById('companyName');
+const imagePage = document.getElementById('companyImage');
+const dataCompany = document.getElementById('companyClaim');
+const textCompany = document.getElementById('companyText');
+const bodyTag = document.body;
+console.log (document);
 
 
 //¿   DOM MANIPULATE
 
 headTitle.textContent = companyData.name;
 logoPage.textContent = companyData.name;
-imagepage.src = companyData.imageUrl;
-datacompany.textContent = companyData.claim;
-textcompany.textContent = companyData.text;
+imagePage.src = companyData.imageUrl;
+dataCompany.textContent = companyData.claim;
+textCompany.textContent = companyData.text;
+htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
+
 
