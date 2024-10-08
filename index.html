@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE LOCAL LIFE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/whats-new.css" />
+    <link rel="stylesheet" href="styles/form.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo" id="companyName">THE LOCAL LIFE</div>
+          <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact Us</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <button type="button" id="editCompanyBtn" class="open-edit-form-button">
+        <i class="fas fa-edit"></i> Edit Company
+      </button>
+
+      <div class="container">
+        <div class="hero-image">
+          <img
+            id="companyImage"
+            src="https://as1.ftcdn.net/v2/jpg/06/13/08/04/1000_F_613080459_saqr3TXzDUb5CtsG3bTNu6QL5DYRXBSf.jpg"
+            alt="Company Image"
+          />
+        </div>
+        <div class="hero-content">
+          <h1 class="title" id="companyClaim">
+            From our farms to your kitchen.
+          </h1>
+          <p class="text" id="companyText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <a href="#" class="cta-button">SHOP NOW</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="whats-new">
+      <div class="container">
+        <h2>NEWS & OFFERS</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img
+              src="https://c8.alamy.com/comp/2CH190N/photo-of-green-wet-vegetable-set-with-water-drops-2CH190N.jpg"
+              alt="Green vegetables pack"
+            />
+            <div class="product-info">
+              <h3>Green Vegetables</h3>
+              <p>$9.99</p>
+            </div>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://www.fruitypack.com/assets/files/w-star-mix-1.960x640.jpg"
+              alt="Fruit cart packs"
+            />
+            <div class="product-info">
+              <h3>Fruit Pack</h3>
+              <p>$14.99</p>
+            </div>
+          </div>
+          <div class="product-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEX1cf3cY-2yQOnyP2eWFnqUy9G5B5gbyP2Q&s"
+              alt="Lemons & orange packs"
+            />
+            <div class="product-info">
+              <h3>Lemons and Oranges</h3>
+              <p>$7.99</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-container hidden" id="companyForm">
+      <div class="close-from-button" id="closeCompanyFormBtn">
+        <span>x</span>
+      </div>
+      <form action="" id="#companyForm">
+        <label for="company">Company name</label>
+        <input type="text" name="company" id="companyNameInput" />
+
+        <label for="company-image">Image URL</label>
+        <input
+          type="url"
+          name="company-image"
+          id="companyImageURLInput"
+          required
+        />
+
+        <label for="primary-color">Primary color</label>
+        <input type="color" name="primary-color" id="primaryColorInput" />
+
+        <label for="secondary-color">Background color</label>
+        <input type="color" name="secondary-color" id="backgroundColorInput" />
+
+        <label for="">Claim</label>
+        <input type="text" name="claim" id="companyClaimInput" />
+
+        <label for="text-area">Text</label>
+        <textarea
+          name="text-area"
+          id="companyTextInput"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <button type="submit" value="Submit">Save</button>
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+.form-container {
+  margin: 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  min-width: 400px;
+  background-color: white;
+  padding: 15px;
+  padding-top: 45px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.form-container .close-from-button {
+  color: var(--primary-color);
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="url"],
+.form-container textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-container input[type="color"] {
+  padding: 2px;
+  width: 50px;
+  height: 30px;
+}
+
+.form-container button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+}
