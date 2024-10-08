@@ -15,7 +15,10 @@ console.log(companyData);
 const headTitle = document.getElementById('headTitle')
 const logoPage = document.getElementById('companyName')
 const imagepage = document.getElementById('companyImage')
-console.log (imagepage)
+const datacompany = document.getElementById('companyClaim')
+const textcompany = document.getElementById('companyText')
+console.log (datacompany);
+console.log (textcompany);
 
 
 //¿   DOM MANIPULATE
@@ -23,4 +26,6 @@ console.log (imagepage)
 headTitle.textContent = companyData.name;
 logoPage.textContent = companyData.name;
 imagepage.src = companyData.imageUrl;
+datacompany.textContent = companyData.claim;
+textcompany.textContent = companyData.text;
 
