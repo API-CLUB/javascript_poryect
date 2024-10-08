@@ -19,6 +19,7 @@ const imagePage = document.getElementById('companyImage');
 const dataCompany = document.getElementById('companyClaim');
 const textCompany = document.getElementById('companyText');
 const bodyTag = document.body;
+const formBtn = document.getElementById("editCompanyBtn")
 console.log (document);
 
 
@@ -32,3 +33,8 @@ textCompany.textContent = companyData.text;
 htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
 
 
+formBtn.addEventListener('click', formAction);
+
+function formAction(){
+  formBtn.className = "form-container"
+}
