@@ -14,9 +14,13 @@ console.log(companyData);
 
 const headTitle = document.getElementById('headTitle')
 const logoPage = document.getElementById('companyName')
-console.log (headTitle)
+const imagepage = document.getElementById('companyImage')
+console.log (imagepage)
+
 
 //¿   DOM MANIPULATE
 
 headTitle.textContent = companyData.name;
 logoPage.textContent = companyData.name;
+imagepage.src = companyData.imageUrl;
+
