@@ -9,3 +9,14 @@ const companyData = {
 };
 
 console.log(companyData);
+
+//! VARIABLES
+
+const headTitle = document.getElementById('headTitle')
+const logoPage = document.getElementById('companyName')
+console.log (headTitle)
+
+//¿   DOM MANIPULATE
+
+headTitle.textContent = companyData.name;
+logoPage.textContent = companyData.name;
