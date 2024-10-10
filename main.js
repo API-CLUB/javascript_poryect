@@ -20,7 +20,9 @@ const dataCompany = document.getElementById('companyClaim');
 const textCompany = document.getElementById('companyText');
 const bodyTag = document.body;
 const formBtn = document.getElementById("editCompanyBtn")
-console.log (document);
+const showCompanyForm = document.getElementById("companyForm")
+const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
+console.log (showCompanyForm);
 
 
 //¿   DOM MANIPULATE
@@ -33,8 +35,21 @@ textCompany.textContent = companyData.text;
 htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
 
 
-formBtn.addEventListener('click', formAction);
+//EVENTOS
 
-function formAction(){
-  formBtn.className = "form-container"
+formBtn.addEventListener('click', showFormAction);
+closeCompanyForm.addEventListener('click', closeFormAction);
+
+
+//FUNCTION
+
+function showFormAction(){
+  showCompanyForm.classList.remove("hidden")
 }
+
+function closeFormAction(){
+  closeCompanyForm.classList.add("hidden")
+}
+
+
+
