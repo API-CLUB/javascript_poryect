@@ -22,7 +22,7 @@ const bodyTag = document.body;
 const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
-console.log (showCompanyForm);
+console.log (formDefault());
 
 
 //¿   DOM MANIPULATE
@@ -39,7 +39,7 @@ htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
 
 formBtn.addEventListener('click', showFormAction);
 closeCompanyForm.addEventListener('click', closeFormAction);
-
+window.addEventListener('load', formDefault());
 
 //FUNCTION
 
@@ -49,6 +49,15 @@ function showFormAction(){
 
 function closeFormAction(){
   showCompanyForm.classList.add("hidden")
+}
+
+function formDefault (){
+  document.getElementById("companyNameInput").value = companyData.name
+  document.getElementById("primaryColorInput").value = companyData.primaryColor
+  document.getElementById("backgroundColorInput").value = companyData.backgroundColor
+  document.getElementById("companyClaimInput").value = companyData.claim
+  document.getElementById("companyImageURLInput").value = companyData.imageUrl
+  document.getElementById("companyTextInput").value = companyData.text
 }
 
 
