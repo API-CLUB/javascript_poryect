@@ -8,7 +8,6 @@ const companyData = {
     "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
 };
 
-console.log(companyData);
 
 //! VARIABLES
 
@@ -22,7 +21,8 @@ const bodyTag = document.body;
 const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
-console.log (formDefault());
+const bottonSaveForm = document.querySelectorAll('button');
+console.log(bottonSaveForm[bottonSaveForm.length-1]);
 
 
 //¿   DOM MANIPULATE
@@ -40,7 +40,8 @@ htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
 formBtn.addEventListener('click', showFormAction);
 closeCompanyForm.addEventListener('click', closeFormAction);
 window.addEventListener('load', formDefault());
-
+let boton1 = bottonSaveForm[bottonSaveForm.length-1]
+boton1.addEventListener('click', saveFomrChanges());
 //FUNCTION
 
 function showFormAction(){
@@ -59,6 +60,13 @@ function formDefault (){
   document.getElementById("companyImageURLInput").value = companyData.imageUrl
   document.getElementById("companyTextInput").value = companyData.text
 }
+
+function saveFomrChanges(){
+companyData.name= document.getElementById("companyNameInput").value; 
+
+}
+console.log(companyData.name);
+console.log(document.getElementById("companyNameInput").value);
 
 
 
