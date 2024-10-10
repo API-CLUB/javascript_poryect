@@ -22,19 +22,21 @@ const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
 const bottonSaveForm = document.querySelectorAll('button');
+const bottonSaveForm2 = document.getElementById('button_save');
 console.log(bottonSaveForm[bottonSaveForm.length-1]);
+console.log(bottonSaveForm2);
 
 
 //¿   DOM MANIPULATE
-
-headTitle.textContent = companyData.name;
-logoPage.textContent = companyData.name;
-imagePage.src = companyData.imageUrl;
-dataCompany.textContent = companyData.claim;
-textCompany.textContent = companyData.text;
-htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
-
-
+function updateDOM(){
+  headTitle.textContent = companyData.name;
+  logoPage.textContent = companyData.name;
+  imagePage.src = companyData.imageUrl;
+  dataCompany.textContent = companyData.claim;
+  textCompany.textContent = companyData.text;
+  htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
+}
+updateDOM();
 //EVENTOS
 
 formBtn.addEventListener('click', showFormAction);
@@ -42,6 +44,7 @@ closeCompanyForm.addEventListener('click', closeFormAction);
 window.addEventListener('load', formDefault());
 let boton1 = bottonSaveForm[bottonSaveForm.length-1]
 boton1.addEventListener('click', saveFomrChanges());
+bottonSaveForm2.addEventListener('click', saveFomrChanges());
 //FUNCTION
 
 function showFormAction(){
@@ -63,8 +66,10 @@ function formDefault (){
 
 function saveFomrChanges(){
 companyData.name= document.getElementById("companyNameInput").value; 
-
+updateDOM();
+closeFormAction();
 }
+console.log(companyData);
 console.log(companyData.name);
 console.log(document.getElementById("companyNameInput").value);
 
