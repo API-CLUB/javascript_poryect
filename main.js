@@ -1,6 +1,6 @@
 const companyData = {
   name: "Acme Corporation",
-  primaryColor: "Red",
+  primaryColor: "#FF0000",
   backgroundColor: "#e3e3e3",
   claim: "We make the best widgets",
   text: "We are the best company in the world, except for the other companies that are better than us.",
@@ -22,30 +22,32 @@ const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
 const bottonSaveForm = document.querySelectorAll('button');
-const bottonSaveForm2 = document.getElementById('button_save');
+
+let boton1 = bottonSaveForm[bottonSaveForm.length-1]
 console.log(bottonSaveForm[bottonSaveForm.length-1]);
-console.log(bottonSaveForm2);
 
 
-//¿   DOM MANIPULATE
+updateDOM();
+
+//¡  EVENTOS
+
+formBtn.addEventListener('click', showFormAction);
+closeCompanyForm.addEventListener('click', closeFormAction);
+boton1.addEventListener('click', saveFomrChanges);
+
+//'   FUNCTIONS
+          //¿   DOM MANIPULATE FUNCTION
 function updateDOM(){
   headTitle.textContent = companyData.name;
+  console.log (headTitle.textContent)
   logoPage.textContent = companyData.name;
   imagePage.src = companyData.imageUrl;
   dataCompany.textContent = companyData.claim;
   textCompany.textContent = companyData.text;
   htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
-}
-updateDOM();
-//EVENTOS
 
-formBtn.addEventListener('click', showFormAction);
-closeCompanyForm.addEventListener('click', closeFormAction);
-window.addEventListener('load', formDefault());
-let boton1 = bottonSaveForm[bottonSaveForm.length-1]
-boton1.addEventListener('click', saveFomrChanges());
-bottonSaveForm2.addEventListener('click', saveFomrChanges());
-//FUNCTION
+  formDefault()
+}
 
 function showFormAction(){
   showCompanyForm.classList.remove("hidden")
@@ -62,16 +64,28 @@ function formDefault (){
   document.getElementById("companyClaimInput").value = companyData.claim
   document.getElementById("companyImageURLInput").value = companyData.imageUrl
   document.getElementById("companyTextInput").value = companyData.text
+  bodyTag.style.backgroundColor = companyData.backgroundColor;
 }
 
 function saveFomrChanges(){
-companyData.name= document.getElementById("companyNameInput").value; 
-updateDOM();
-closeFormAction();
+  let newCompanyData = {
+    name: "",
+    primaryColor: "",
+    backgroundColor: "",
+    claim: "",
+    text: "",
+    imageUrl:
+      "",
+  };
+  newCompanyData.name = document.getElementById("companyNameInput").value;
+  newCompanyData.primaryColor = document.getElementById("primaryColorInput").value;
+  newCompanyData.backgroundColor = document.getElementById("backgroundColorInput").value;
+  newCompanyData.claim = document.getElementById("companyClaimInput").value;
+  newCompanyData.imageUrl = document.getElementById("companyImageURLInput").value;
+  newCompanyData.text = document.getElementById("companyTextInput").value;
+  updateDOM();
+  closeFormAction();
+
+  console.log (newCompanyData)
 }
 console.log(companyData);
-console.log(companyData.name);
-console.log(document.getElementById("companyNameInput").value);
-
-
-
