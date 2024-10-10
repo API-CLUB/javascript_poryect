@@ -48,7 +48,7 @@ function showFormAction(){
 }
 
 function closeFormAction(){
-  closeCompanyForm.classList.add("hidden")
+  showCompanyForm.classList.add("hidden")
 }
 
 
