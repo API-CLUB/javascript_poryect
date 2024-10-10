@@ -1,4 +1,4 @@
-const companyData = {
+let companyData = {
   name: "Acme Corporation",
   primaryColor: "#FF0000",
   backgroundColor: "#e3e3e3",
@@ -7,7 +7,12 @@ const companyData = {
   imageUrl:
     "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
 };
+console.log(companyData);
 
+if (localStorage.getItem("companyData")) {
+  companyData = JSON.parse(localStorage.getItem("companyData"));
+  console.log(companyData);
+}
 
 
 //! VARIABLES
@@ -23,21 +28,10 @@ const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
 const bottonSaveForm = document.querySelectorAll('button');
-
 let boton1 = bottonSaveForm[bottonSaveForm.length-1]
-console.log(bottonSaveForm[bottonSaveForm.length-1]);
 
+//¿   DOM MANIPULATE FUNCTION
 
-updateDOM();
-
-//¡  EVENTOS
-
-formBtn.addEventListener('click', showFormAction);
-closeCompanyForm.addEventListener('click', closeFormAction);
-boton1.addEventListener('click', saveFomrChanges);
-
-//'   FUNCTIONS
-          //¿   DOM MANIPULATE FUNCTION
 function updateDOM(){
   headTitle.textContent = companyData.name;
   console.log (headTitle.textContent)
@@ -48,7 +42,16 @@ function updateDOM(){
   htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
 
   formDefault()
+
 }
+
+updateDOM();
+
+//¡  EVENTOS
+formBtn.addEventListener('click', showFormAction);
+closeCompanyForm.addEventListener('click', closeFormAction);
+window.addEventListener('load', formDefault);
+boton1.addEventListener('click', saveFomrChanges);
 
 function showFormAction(){
   showCompanyForm.classList.remove("hidden")
@@ -68,25 +71,21 @@ function formDefault (){
   bodyTag.style.backgroundColor = companyData.backgroundColor;
 }
 
-function saveFomrChanges(){
-  let newCompanyData = {
-    name: "",
-    primaryColor: "",
-    backgroundColor: "",
-    claim: "",
-    text: "",
-    imageUrl:
-      "",
-  };
-  newCompanyData.name = document.getElementById("companyNameInput").value;
-  newCompanyData.primaryColor = document.getElementById("primaryColorInput").value;
-  newCompanyData.backgroundColor = document.getElementById("backgroundColorInput").value;
-  newCompanyData.claim = document.getElementById("companyClaimInput").value;
-  newCompanyData.imageUrl = document.getElementById("companyImageURLInput").value;
-  newCompanyData.text = document.getElementById("companyTextInput").value;
+function saveFomrChanges(event){
+
+  event.preventDefault();
+
+  companyData.name = document.getElementById("companyNameInput").value;
+  companyData.primaryColor = document.getElementById("primaryColorInput").value;
+  companyData.backgroundColor = document.getElementById("backgroundColorInput").value;
+  companyData.claim = document.getElementById("companyClaimInput").value;
+  companyData.imageUrl = document.getElementById("companyImageURLInput").value;
+  companyData.text = document.getElementById("companyTextInput").value;
+
+  localStorage.setItem("companyData", JSON.stringify(companyData));
+
   updateDOM();
   closeFormAction();
-
-  console.log (newCompanyData)
+  localStorage.clear();
 }
-console.log(companyData);
+
