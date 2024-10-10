@@ -9,11 +9,6 @@ let companyData = {
 };
 console.log(companyData);
 
-if (localStorage.getItem("companyData")) {
-  companyData = JSON.parse(localStorage.getItem("companyData"));
-  console.log(companyData);
-}
-
 
 //! VARIABLES
 
@@ -28,9 +23,24 @@ const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
 const bottonSaveForm = document.querySelectorAll('button');
-let boton1 = bottonSaveForm[bottonSaveForm.length-1]
+let boton1 = bottonSaveForm[bottonSaveForm.length-2]
+
+console.log(bottonSaveForm)
 
 //¿   DOM MANIPULATE FUNCTION
+
+function updateDOM(){
+  headTitle.textContent = companyData.name;
+  console.log (headTitle.textContent)
+  logoPage.textContent = companyData.name;
+  imagePage.src = companyData.imageUrl;
+  dataCompany.textContent = companyData.claim;
+  textCompany.textContent = companyData.text;
+  htmlAll.style.setProperty('--primary-color', companyData.primaryColor);
+
+  formDefault()
+
+}
 
 function updateDOM(){
   headTitle.textContent = companyData.name;
@@ -51,7 +61,7 @@ updateDOM();
 formBtn.addEventListener('click', showFormAction);
 closeCompanyForm.addEventListener('click', closeFormAction);
 window.addEventListener('load', formDefault);
-boton1.addEventListener('click', saveFomrChanges);
+boton1.addEventListener('click', saveFormChanges);
 
 function showFormAction(){
   showCompanyForm.classList.remove("hidden")
@@ -71,7 +81,7 @@ function formDefault (){
   bodyTag.style.backgroundColor = companyData.backgroundColor;
 }
 
-function saveFomrChanges(event){
+function saveFormChanges(event){
 
   event.preventDefault();
 
@@ -82,10 +92,8 @@ function saveFomrChanges(event){
   companyData.imageUrl = document.getElementById("companyImageURLInput").value;
   companyData.text = document.getElementById("companyTextInput").value;
 
-  localStorage.setItem("companyData", JSON.stringify(companyData));
 
   updateDOM();
   closeFormAction();
-  localStorage.clear();
 }
 
