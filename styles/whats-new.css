@@ -1,9 +1,10 @@
 .whats-new {
-  padding: 40px 0;
+  padding: 10px ;
 }
 
 .whats-new h2 {
   text-align: center;
+  padding: 30px 0px 0px 0px;
   margin-bottom: 40px;
 }
 
@@ -29,4 +30,15 @@
 .product-info {
   padding: 15px;
   line-height: 30px;
+}
+
+.open-edit-ofert-button {
+  position: absolute;
+  right: 10px;
+  background-color: var(--backgroudColor);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

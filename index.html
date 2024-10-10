@@ -58,6 +58,9 @@
     </section>
 
     <section class="whats-new">
+      <button type="button" id="editOfertBtn" class="open-edit-ofert-button">
+        <i class="fas fa-edit"></i> Edit Company
+      </button>
       <div class="container">
         <h2>NEWS & OFFERS</h2>
         <div class="product-grid">
@@ -127,6 +130,63 @@
           cols="30"
           rows="10"
         ></textarea>
+
+        <button type="submit" value="Submit">Save</button>
+      </form>
+    </section>
+<!--! hidden -->
+    <section class="form-container2 hidden" id="ofertForm">
+      <div class="close-from-button2" id="closeOferFormBtn">
+        <span>x</span>
+      </div>
+      <form action="" id="#ofertForm">
+
+        <h3>OFERTA 1</h3>
+        <label for="imageOferta1">Image URL:</label>
+        <input
+          type="url"
+          name="imageOferta1"
+          id="idIamgeOferta1"
+          required
+        />
+
+        <label for="productName1">Nombre producto:</label>
+        <input type="text" name="productName1" id="idProductName1" />
+
+        <label for="priceProduct1">Precio producto:</label>
+        <input type="text" name="priceProduct1" id="idPriceProduct1" />
+
+        <h3>OFERTA 2</h3>
+        <label for="imageOferta2">Image URL:</label>
+        <input
+          type="url"
+          name="imageOferta2"
+          id="idIamgeOferta2"
+          required
+        />
+
+        <label for="productName2">Nombre producto:</label>
+        <input type="text" name="productName2" id="idProductName2" />
+
+        <label for="priceProduct">Precio producto:</label>
+        <input type="text" name="priceProduct2" id="idPriceProduct2" />
+
+        <h3>OFERTA 3</h3>
+        <label for="imageOferta3">Image URL:</label>
+        <input
+          type="url"
+          name="imageOferta3"
+          id="idIamgeOferta3"
+          required
+        />
+
+        <label for="productName3">Nombre producto:</label>
+        <input type="text" name="productName3" id="idProductName3" />
+
+        <label for="priceProduct">Precio producto:</label>
+        <input type="text" name="priceProduct3" id="idPriceProduct3" />
+
+
         <button type="submit" value="Submit">Save</button>
       </form>
     </section>

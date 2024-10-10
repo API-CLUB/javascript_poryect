@@ -9,6 +9,7 @@ const companyData = {
 };
 
 
+
 //! VARIABLES
 
 const htmlAll = document.documentElement;

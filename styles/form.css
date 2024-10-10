@@ -1,10 +1,12 @@
-.form-container {
+.form-container, .form-container2 {
   margin: 20px;
   position: fixed;
   top: 0;
   right: 0;
   width: 30%;
   min-width: 400px;
+  max-width:90vh;
+  overflow-y: auto;
   background-color: white;
   padding: 15px;
   padding-top: 45px;
@@ -12,13 +14,13 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.form-container label {
+.form-container label, .form-container2 label {
   display: block;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.form-container .close-from-button {
+.form-container .close-from-button, .form-container2  .close-of-button{
   color: var(--primary-color);
   font-size: 20px;
   width: 30px;
@@ -31,9 +33,12 @@
   cursor: pointer;
 }
 
-.form-container input,
+.form-container input, 
+.form-container2 input,
 .form-container textarea,
-.form-container select {
+.form-container2 textarea,
+.form-container select,
+.form-container2 select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -41,19 +46,22 @@
 }
 
 .form-container input[type="text"],
+.form-container2 input[type="text"],
 .form-container input[type="url"],
-.form-container textarea {
+.form-container2 input [type="url"],
+.form-container textarea,
+.form-container2 textarea {
   width: 100%;
   margin-bottom: 10px;
 }
 
-.form-container input[type="color"] {
+.form-container input[type="color"], .form-container2 input[type="color"]{
   padding: 2px;
   width: 50px;
   height: 30px;
 }
 
-.form-container button {
+.form-container button, .form-container2 button {
   background-color: var(--primary-color);
   color: white;
   padding: 10px 20px;
