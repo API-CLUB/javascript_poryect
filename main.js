@@ -9,7 +9,6 @@ const companyData = {
   imageUrl:
     "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
 };
-console.log(companyData);
 
 const oferta1 = {
  imagenOf: "https://images.unsplash.com/photo-1495707902641-75cac588d2e9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600",
@@ -31,7 +30,30 @@ const oferta3 = {
  priceOf:"999.99€"
 };
 
+// PERSISTENCIA A TRAVES DE LOCAL STORAGE
 
+window.addEventListener('load', () => {
+  // Recuperar datos de la compañía y de las ofertas, si existen
+  const storedCompanyData = localStorage.getItem('companyData');
+  const storedOfertas = localStorage.getItem('ofertas');
+
+  if (storedCompanyData) {
+    // Si hay datos guardados de la compañía, los parseamos y los asignamos
+    Object.assign(companyData, JSON.parse(storedCompanyData));
+  }
+
+  if (storedOfertas) {
+    // Si hay datos guardados de las ofertas, los parseamos y los asignamos
+    const ofertas = JSON.parse(storedOfertas);
+    Object.assign(oferta1, ofertas.oferta1);
+    Object.assign(oferta2, ofertas.oferta2);
+    Object.assign(oferta3, ofertas.oferta3);
+  }
+  console.log(storedCompanyData);
+
+  updateDOM();
+  updateDOMof();
+});
 
 
 
@@ -95,7 +117,6 @@ closeOferFormBtn.addEventListener('click', closeOferBtn)
 
 function updateDOM(){
   headTitle.textContent = companyData.name;
-  console.log (headTitle.textContent)
   logoPage.textContent = companyData.name;
   imagePage.src = companyData.imageUrl;
   dataCompany.textContent = companyData.claim;
@@ -121,7 +142,6 @@ function updateDOMof(){
   DOMpriceOf3.textContent = oferta3.priceOf;
 
   formDefault()
-  console.log(DOMpriceOf3.textContent)
 }
 
 //¿  FUNCTIONS
@@ -142,7 +162,7 @@ function closeFormAction(){
 
 function closeOferBtn(){
   ofertForm.classList.add("hidden")
-  console.log('abrir')
+
 }
 
 
@@ -169,6 +189,8 @@ function formOfertsDefault (){
   priceOf3.value = oferta3.priceOf
   
   bodyTag.style.backgroundColor = companyData.backgroundColor;
+
+ 
 }
 
 function saveFormChanges(event){
@@ -182,6 +204,7 @@ function saveFormChanges(event){
   companyData.imageUrl = document.getElementById("companyImageURLInput").value;
   companyData.text = document.getElementById("companyTextInput").value;
 
+  localStorage.setItem('companyData', JSON.stringify(companyData));
 
   updateDOM();
   closeFormAction();
@@ -201,7 +224,11 @@ function saveFormChangesOF(event){
   oferta3.productName = productName3.value
   oferta3.priceOf = priceOf3.value
   
+  localStorage.setItem('ofertas', JSON.stringify({ oferta1, oferta2, oferta3 }));
+ 
 
   updateDOMof()
   closeOferBtn()
 }
+
+//localStorage.clear();
