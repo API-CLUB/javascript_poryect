@@ -21,13 +21,13 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.product-card img {
+#cardImg1, #cardImg2, #cardImg3 {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
-.product-info {
+.product-info1, .product-info2, .product-info3  {
   padding: 15px;
   line-height: 30px;
 }
