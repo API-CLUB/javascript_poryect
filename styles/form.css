@@ -20,7 +20,7 @@
   margin-bottom: 5px;
 }
 
-.form-container .close-from-button, .form-container2  .close-of-button{
+.form-container .close-from-button, .form-container2  #closeOferFormBtn{
   color: var(--primary-color);
   font-size: 20px;
   width: 30px;
