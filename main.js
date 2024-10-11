@@ -1,3 +1,5 @@
+//'  OBJECTS
+
 const companyData = {
   name: "Acme Corporation",
   primaryColor: "#FF0000",
@@ -42,6 +44,7 @@ const imagePage = document.getElementById('companyImage');
 const dataCompany = document.getElementById('companyClaim');
 const textCompany = document.getElementById('companyText');
 const bodyTag = document.body;
+  //  FORM COMPANY
 const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
@@ -50,31 +53,43 @@ const boton1 = bottonSaveForm[bottonSaveForm.length-2]
 const editOfertBtn = document.getElementById("editOfertBtn")
 const closeOferFormBtn = document.getElementById("closeOferFormBtn")
 const ofertForm = document.getElementById("ofertForm")
+  //  FORM OFERS
 const imagenOf1 = document.getElementById("idIamgeOferta1")
 const productName1 = document.getElementById("idProductName1")
 const priceOf1 = document.getElementById("idPriceProduct1")
 const imagenOf2 = document.getElementById("idIamgeOferta2")
 const productName2 = document.getElementById("idProductName2")
-const priceOf2 = document.getElementById("priceProduct2")
+const priceOf2 = document.getElementById("idPriceProduct2")
 const imagenOf3 = document.getElementById("idIamgeOferta3")
 const productName3 = document.getElementById("idProductName3")
 const priceOf3 = document.getElementById("idPriceProduct3")
-
+//!console.log(imagenOf1,productName1,priceOf1,imagenOf2,productName2,priceOf2,imagenOf3,productName3,priceOf3)
+  //  DOM OFERTAS 
 const DOMimagenOf1 = document.getElementById("cardImg1")
-const DOMproductName1 = document.querySelector(".product-info1")
+const DOMproductName1 = document.querySelector(".product-info1 h3")
 const DOMpriceOf1 = document.querySelector(".product-info1 p")
 const DOMimagenOf2 = document.getElementById("cardImg2")
-const DOMproductName2 = document.querySelector(".product-info2")
-const DOMpriceOf2 = document.querySelectorAll(".product-info2 p")
+const DOMproductName2 = document.querySelector(".product-info2 h3")
+const DOMpriceOf2 = document.querySelector(".product-info2 p")
 const DOMimagenOf3 = document.getElementById("cardImg3")
-const DOMproductName3 = document.querySelector(".product-info3")
+const DOMproductName3 = document.querySelector(".product-info3 h3")
 const DOMpriceOf3 = document.querySelector(".product-info3 p")
+const DOMsaveBtn = document.getElementById('saveOferts')
+
+updateDOM();
+updateDOMof();
 
 
+//¡  EVENTOS
 
-console.log(DOMpriceOf2)
-console.log(imagenOf2)
-console.log(imagenOf3)
+formBtn.addEventListener('click', showFormAction);
+closeCompanyForm.addEventListener('click', closeFormAction);
+window.addEventListener('load', formDefault);
+window.addEventListener('load', formOfertsDefault);
+boton1.addEventListener('click', saveFormChanges);
+DOMsaveBtn.addEventListener('click', saveFormChangesOF);
+editOfertBtn.addEventListener('click', showFormOfert);
+closeOferFormBtn.addEventListener('click', closeOferBtn)
 
 //¿   DOM MANIPULATE FUNCTION
 
@@ -98,26 +113,18 @@ function updateDOMof(){
   DOMproductName1.textContent = oferta1.productName;
   DOMproductName2.textContent = oferta2.productName;
   DOMproductName3.textContent = oferta3.productName;
+  DOMpriceOf1.textContent = '';
+  DOMpriceOf2.textContent = '';
+  DOMpriceOf3.textContent = '';
   DOMpriceOf1.textContent = oferta1.priceOf;
   DOMpriceOf2.textContent = oferta2.priceOf;
   DOMpriceOf3.textContent = oferta3.priceOf;
-
 
   formDefault()
   console.log(DOMpriceOf3.textContent)
 }
 
-updateDOM();
-updateDOMof();
-
-
-//¡  EVENTOS
-formBtn.addEventListener('click', showFormAction);
-closeCompanyForm.addEventListener('click', closeFormAction);
-window.addEventListener('load', formDefault);
-boton1.addEventListener('click', saveFormChanges);
-editOfertBtn.addEventListener('click', showFormOfert);
-closeOferFormBtn.addEventListener('click', closeOferBtn)
+//¿  FUNCTIONS
 
 function showFormAction(){
   showCompanyForm.classList.remove("hidden")
@@ -149,6 +156,21 @@ function formDefault (){
   bodyTag.style.backgroundColor = companyData.backgroundColor;
 }
 
+
+function formOfertsDefault (){
+  imagenOf1.value = oferta1.imagenOf
+  productName1.value = oferta1.productName
+  priceOf1.value = oferta1.priceOf
+  imagenOf2.value = oferta2.imagenOf
+  productName2.value = oferta2.productName
+  priceOf2.value = oferta2.priceOf
+  imagenOf3.value = oferta3.imagenOf
+  productName3.value = oferta3.productName
+  priceOf3.value = oferta3.priceOf
+  
+  bodyTag.style.backgroundColor = companyData.backgroundColor;
+}
+
 function saveFormChanges(event){
 
   event.preventDefault();
@@ -165,3 +187,21 @@ function saveFormChanges(event){
   closeFormAction();
 }
 
+function saveFormChangesOF(event){
+
+  event.preventDefault();
+
+  oferta1.imagenOf = imagenOf1.value
+  oferta1.productName = productName1.value
+  oferta1.priceOf = priceOf1.value
+  oferta2.imagenOf = imagenOf2.value
+  oferta2.productName = productName2.value
+  oferta2.priceOf = priceOf2.value
+  oferta3.imagenOf = imagenOf3.value
+  oferta3.productName = productName3.value
+  oferta3.priceOf = priceOf3.value
+  
+
+  updateDOMof()
+  closeOferBtn()
+}
