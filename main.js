@@ -23,9 +23,12 @@ const formBtn = document.getElementById("editCompanyBtn")
 const showCompanyForm = document.getElementById("companyForm")
 const closeCompanyForm = document.getElementById("closeCompanyFormBtn")
 const bottonSaveForm = document.querySelectorAll('button');
-let boton1 = bottonSaveForm[bottonSaveForm.length-2]
+const boton1 = bottonSaveForm[bottonSaveForm.length-2]
+const editOfertBtn = document.getElementById("editOfertBtn")
+const closeOferFormBtn = document.getElementById("closeOferFormBtn")
 
-console.log(bottonSaveForm)
+console.log(editOfertBtn)
+console.log(closeOferFormBtn)
 
 //¿   DOM MANIPULATE FUNCTION
 
@@ -62,14 +65,28 @@ formBtn.addEventListener('click', showFormAction);
 closeCompanyForm.addEventListener('click', closeFormAction);
 window.addEventListener('load', formDefault);
 boton1.addEventListener('click', saveFormChanges);
+editOfertBtn.addEventListener('click', showFormOfert);
+closeOferFormBtn.addEventListener('click', closeOferBtn)
 
 function showFormAction(){
   showCompanyForm.classList.remove("hidden")
 }
 
+function showFormOfert(){
+  editOfertBtn.classList.remove("hidden")
+  console.log('abrir')
+}
+
+
 function closeFormAction(){
   showCompanyForm.classList.add("hidden")
 }
+
+function closeOferBtn(){
+  closeOferFormBtn.classList.add("hidden")
+  console.log('abrir')
+}
+
 
 function formDefault (){
   document.getElementById("companyNameInput").value = companyData.name
