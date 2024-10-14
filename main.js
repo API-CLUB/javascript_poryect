@@ -30,31 +30,6 @@ const oferta3 = {
  priceOf:"999.99€"
 };
 
-// PERSISTENCIA A TRAVES DE LOCAL STORAGE
-
-window.addEventListener('load', () => {
-  // Recuperar datos de la compañía y de las ofertas, si existen
-  const storedCompanyData = localStorage.getItem('companyData');
-  const storedOfertas = localStorage.getItem('ofertas');
-
-  if (storedCompanyData) {
-    // Si hay datos guardados de la compañía, los parseamos y los asignamos
-    Object.assign(companyData, JSON.parse(storedCompanyData));
-  }
-
-  if (storedOfertas) {
-    // Si hay datos guardados de las ofertas, los parseamos y los asignamos
-    const ofertas = JSON.parse(storedOfertas);
-    Object.assign(oferta1, ofertas.oferta1);
-    Object.assign(oferta2, ofertas.oferta2);
-    Object.assign(oferta3, ofertas.oferta3);
-  }
-  console.log(storedCompanyData);
-
-  updateDOM();
-  updateDOMof();
-});
-
 
 
 //! VARIABLES
@@ -85,8 +60,7 @@ const priceOf2 = document.getElementById("idPriceProduct2")
 const imagenOf3 = document.getElementById("idIamgeOferta3")
 const productName3 = document.getElementById("idProductName3")
 const priceOf3 = document.getElementById("idPriceProduct3")
-//!console.log(imagenOf1,productName1,priceOf1,imagenOf2,productName2,priceOf2,imagenOf3,productName3,priceOf3)
-  //  DOM OFERTAS 
+  // DOM OFERTAS 
 const DOMimagenOf1 = document.getElementById("cardImg1")
 const DOMproductName1 = document.querySelector(".product-info1 h3")
 const DOMpriceOf1 = document.querySelector(".product-info1 p")
@@ -97,6 +71,28 @@ const DOMimagenOf3 = document.getElementById("cardImg3")
 const DOMproductName3 = document.querySelector(".product-info3 h3")
 const DOMpriceOf3 = document.querySelector(".product-info3 p")
 const DOMsaveBtn = document.getElementById('saveOferts')
+
+// PERSISTENCIA A TRAVES DE LOCAL STORAGE
+
+window.addEventListener('load', () => {
+  const storedCompanyData = localStorage.getItem('companyData');
+  const storedOfertas = localStorage.getItem('ofertas');
+
+  if (storedCompanyData) {
+    Object.assign(companyData, JSON.parse(storedCompanyData));
+  }
+
+  if (storedOfertas) {
+    const ofertas = JSON.parse(storedOfertas);
+    Object.assign(oferta1, ofertas.oferta1);
+    Object.assign(oferta2, ofertas.oferta2);
+    Object.assign(oferta3, ofertas.oferta3);
+  }
+  console.log(storedCompanyData);
+
+  updateDOM();
+  updateDOMof();
+});
 
 updateDOM();
 updateDOMof();
@@ -113,7 +109,7 @@ DOMsaveBtn.addEventListener('click', saveFormChangesOF);
 editOfertBtn.addEventListener('click', showFormOfert);
 closeOferFormBtn.addEventListener('click', closeOferBtn)
 
-//¿   DOM MANIPULATE FUNCTION
+//¿  FUNCTION: DOM MANIPULATE 
 
 function updateDOM(){
   headTitle.textContent = companyData.name;
