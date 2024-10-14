@@ -50,6 +50,13 @@ const boton1 = bottonSaveForm[bottonSaveForm.length-2]
 const editOfertBtn = document.getElementById("editOfertBtn")
 const closeOferFormBtn = document.getElementById("closeOferFormBtn")
 const ofertForm = document.getElementById("ofertForm")
+  //  DOM COMPANY
+const DOMcompanyNameInput = document.getElementById("companyNameInput")
+const DOMprimaryColorInput = document.getElementById("primaryColorInput")
+const DOMbackgroundColorInput = document.getElementById("backgroundColorInput")
+const DOMcompanyClaimInput = document.getElementById("companyClaimInput")
+const DOMcompanyImageURLInput = document.getElementById("companyImageURLInput")
+const DOMcompanyTextInput = document.getElementById("companyTextInput")
   //  FORM OFERS
 const imagenOf1 = document.getElementById("idIamgeOferta1")
 const productName1 = document.getElementById("idProductName1")
@@ -88,7 +95,6 @@ window.addEventListener('load', () => {
     Object.assign(oferta2, ofertas.oferta2);
     Object.assign(oferta3, ofertas.oferta3);
   }
-  console.log(storedCompanyData);
 
   updateDOM();
   updateDOMof();
@@ -144,7 +150,6 @@ function showFormAction(){
 
 function showFormOfert(){
   ofertForm.classList.remove("hidden")
-  console.log('abrir')
 }
 
 
@@ -159,12 +164,12 @@ function closeOferBtn(){
 
 
 function formDefault (){
-  document.getElementById("companyNameInput").value = companyData.name
-  document.getElementById("primaryColorInput").value = companyData.primaryColor
-  document.getElementById("backgroundColorInput").value = companyData.backgroundColor
-  document.getElementById("companyClaimInput").value = companyData.claim
-  document.getElementById("companyImageURLInput").value = companyData.imageUrl
-  document.getElementById("companyTextInput").value = companyData.text
+  DOMcompanyNameInput.value = companyData.name
+  DOMprimaryColorInput.value = companyData.primaryColor
+  DOMbackgroundColorInput.value = companyData.backgroundColor
+  DOMcompanyClaimInput.value = companyData.claim
+  DOMcompanyImageURLInput.value = companyData.imageUrl
+  DOMcompanyTextInput.value = companyData.text
   bodyTag.style.backgroundColor = companyData.backgroundColor;
 }
 
@@ -189,12 +194,12 @@ function saveFormChanges(event){
 
   event.preventDefault();
 
-  companyData.name = document.getElementById("companyNameInput").value;
-  companyData.primaryColor = document.getElementById("primaryColorInput").value;
-  companyData.backgroundColor = document.getElementById("backgroundColorInput").value;
-  companyData.claim = document.getElementById("companyClaimInput").value;
-  companyData.imageUrl = document.getElementById("companyImageURLInput").value;
-  companyData.text = document.getElementById("companyTextInput").value;
+  companyData.name = DOMcompanyNameInput.value;
+  companyData.primaryColor = DOMprimaryColorInput.value;
+  companyData.backgroundColor = DOMbackgroundColorInput.value;
+  companyData.claim = DOMcompanyClaimInput.value;
+  companyData.imageUrl = DOMcompanyImageURLInput.value;
+  companyData.text = DOMcompanyTextInput.value;
 
   localStorage.setItem('companyData', JSON.stringify(companyData));
 
