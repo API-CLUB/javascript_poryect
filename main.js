@@ -2,7 +2,7 @@
 
 const companyData = {
   name: "Acme Corporation",
-  primaryColor: "#FF0000",
+  primaryColor: "#2c5545",
   backgroundColor: "#e3e3e3",
   claim: "We make the best widgets",
   text: "We are the best company in the world, except for the other companies that are better than us.",
@@ -93,10 +93,6 @@ window.addEventListener('load', () => {
   updateDOM();
   updateDOMof();
 });
-
-updateDOM();
-updateDOMof();
-
 
 //¡  EVENTOS
 
